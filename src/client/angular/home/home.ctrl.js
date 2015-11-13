@@ -1,4 +1,4 @@
-angular.module('HomeCtrl', []).controller('HomeController', function($scope, Page) {
+angular.module('HomeCtrl', []).controller('HomeController', function(Page) {
 
    Page.setTitle('Home');   
 
