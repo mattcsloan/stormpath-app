@@ -1,6 +1,6 @@
-angular.module('PortfolioCtrl', []).controller('PortfolioController', function($scope, $http) {
+angular.module('PortfolioCtrl', []).controller('PortfolioController', function($scope, $http, Page) {
 
-  $scope.title = 'Portfolio';  
+  Page.setTitle('Portfolio');  
 
   $http.get('api/portfolio')
     .success(function (res) {

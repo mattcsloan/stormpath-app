@@ -1,5 +1,7 @@
-angular.module('MainCtrl', []).controller('MainController', function($scope, $http) {
+angular.module('MainCtrl', []).controller('MainController', function($scope, $http, Page) {
 
+  $scope.Page = Page;
+  
   $scope.tagline = 'main';  
 
   $http.get('api/navigation')

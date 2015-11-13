@@ -3,7 +3,6 @@ angular.module('appRoutes', []).config(['$routeProvider', '$locationProvider', f
     $routeProvider
 
         .when('/', {
-            title: 'Home',
             templateUrl: '/templates/home/home.view.html',
             controller: 'HomeController'
         })
@@ -13,7 +12,6 @@ angular.module('appRoutes', []).config(['$routeProvider', '$locationProvider', f
         })
 
         .when('/portfolio', {
-            title: 'Portfolio',
             templateUrl: '/templates/portfolio/portfolio.view.html',
             controller: 'PortfolioController'
         });

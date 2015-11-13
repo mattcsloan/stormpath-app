@@ -1,7 +1,7 @@
 doctype html
 html(ng-app="app", ng-controller="MainController")
 	head
-		title(data-ng-bind="pageTitle")
+		title(data-ng-bind="Page.title()")
 		include header-stylesheets
 	body
 		include body-header
