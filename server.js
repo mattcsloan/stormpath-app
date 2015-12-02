@@ -1,9 +1,10 @@
 // modules =================================================
 var express        = require('express');
+var stormpath      = require('express-stormpath')
 var app            = express();
 var bodyParser     = require('body-parser');
 var methodOverride = require('method-override');
-var mongoose	   = require('mongoose');
+var mongoose	     = require('mongoose');
 
 // configuration ===========================================
     
@@ -30,6 +31,12 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // override with the X-HTTP-Method-Override header in the request. simulate DELETE/PUT
 app.use(methodOverride('X-HTTP-Method-Override')); 
 
+// initialize stormpath middleware
+app.use(stormpath.init(app, {
+  // Optional configuration options.
+  website: true
+}));
+
 // set the static files location /public/img will be /img for users
 app.use(express.static(__dirname + '/dist')); 
 
@@ -40,10 +47,13 @@ app.set('view engine', 'jade');
 require('./src/server/routes')(app); // configure our routes
 
 // start app ===============================================
-// startup our app at http://localhost:8080
-var server = app.listen(port, function() {
-	console.log('Running on port ' + port);
-});               
+// startup our app at http://localhost:8080 once stormpath has initialized
+// Once Stormpath has initialized itself, start your web server!
+app.on('stormpath.ready', function () {
+  var server = app.listen(port, function() {
+    console.log('Running on port ' + port);
+  });               
+});
 
 // expose app           
 exports = module.exports = app;
