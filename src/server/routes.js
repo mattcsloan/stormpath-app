@@ -2,6 +2,7 @@
 var navigation = require('./data/navigation');
 var portfolioList = require('./data/portfolio/list');
 var portfolioDetail = require('./data/portfolio/detail');
+var stormpath = require('express-stormpath')
 
 module.exports = function(app) {
 
@@ -40,6 +41,9 @@ module.exports = function(app) {
         }
     });
 
+    app.get('/auth/user', stormpath.loginRequired, function (req, res) {
+      res.json(201, req.user);
+    });
 
     // frontend routes =========================================================
     // route to handle all angular requests

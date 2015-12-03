@@ -34,7 +34,10 @@ app.use(methodOverride('X-HTTP-Method-Override'));
 // initialize stormpath middleware
 app.use(stormpath.init(app, {
   // Optional configuration options.
-  website: true
+  website: true,
+  expand: {
+    customData: true
+  }
 }));
 
 // set the static files location /public/img will be /img for users
