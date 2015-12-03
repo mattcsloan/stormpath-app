@@ -7,6 +7,9 @@ angular.module('ProfileCtrl', []).controller('ProfileController', function($http
   $http.get('/auth/user')
     .success(function (res) {
       vm.user = res;
+    })
+    .error(function (res) {
+      console.log('not logged in');
     });
 
 });

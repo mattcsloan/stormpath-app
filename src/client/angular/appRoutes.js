@@ -90,7 +90,24 @@ angular.module('appRoutes', []).config(['$stateProvider', '$locationProvider', '
                         }
                     }
                 }
-            });
+            })
+
+        .state('login', {
+            url: '/login',
+            external: true
+        })
+
+        .state('logout', {
+            url: '/logout',
+            external: true
+        })
+
+        .state('register', {
+            url: '/register',
+            external: true
+        })
+
+        ;
 
     $locationProvider.html5Mode({
         enabled: true,

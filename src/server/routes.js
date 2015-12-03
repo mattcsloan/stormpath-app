@@ -7,8 +7,7 @@ var stormpath = require('express-stormpath')
 module.exports = function(app) {
 
     // server routes ===========================================================
-    // handle things like api calls
-    // authentication routes
+    // api calls
     app.get('/api/navigation', function(req, res) {
         res.json(201, navigation.items);
     });
@@ -41,9 +40,13 @@ module.exports = function(app) {
         }
     });
 
+    // authentication routes
     app.get('/auth/user', stormpath.loginRequired, function (req, res) {
       res.json(201, req.user);
     });
+
+
+
 
     // frontend routes =========================================================
     // route to handle all angular requests

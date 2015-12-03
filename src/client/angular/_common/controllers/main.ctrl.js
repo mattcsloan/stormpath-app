@@ -1,4 +1,4 @@
-angular.module('MainCtrl', []).controller('MainController', function($state, $rootScope, $http, Page) {
+angular.module('MainCtrl', []).controller('MainController', function($state, $rootScope, $http, $window, Page) {
   var vm = this;
 
   vm.Page = Page;
@@ -16,7 +16,9 @@ angular.module('MainCtrl', []).controller('MainController', function($state, $ro
     if (to.redirectTo) {
       evt.preventDefault();
       $state.go(to.redirectTo, params)
+    } else if (to.external) {
+      evt.preventDefault();
+      $window.open(to.url, '_self');
     }
   });
-
 });
