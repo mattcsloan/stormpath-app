@@ -42,10 +42,11 @@ module.exports = function(app) {
 
     // authentication routes
     app.get('/auth/user', stormpath.loginRequired, function (req, res) {
+      if (!req.user || req.user.status !== 'ENABLED') {
+        return res.redirect('/login');
+      }
       res.json(201, req.user);
     });
-
-
 
 
     // frontend routes =========================================================

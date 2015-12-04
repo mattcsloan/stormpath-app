@@ -21,16 +21,16 @@ angular.module('appRoutes', []).config(['$stateProvider', '$locationProvider', '
             }
         })
 
-        .state('profile', {
-            url: '/profile',
+        .state('dashboard', {
+            url: '/dashboard',
             views: {
                 header: {
                     templateUrl: '/templates/_common/templates/header.tmpl.html',
                 },
                 content: {
-                    templateUrl: '/templates/profile/profile.view.html',
-                    controller: 'ProfileController',
-                    controllerAs: 'profile'
+                    templateUrl: '/templates/dashboard/dashboard.view.html',
+                    controller: 'DashboardController',
+                    controllerAs: 'dashboard'
                 },
                 footer: {
                     templateUrl: '/templates/_common/templates/footer.tmpl.html',

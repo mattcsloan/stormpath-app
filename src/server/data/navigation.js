@@ -6,9 +6,9 @@ module.exports = {
       url: 'home'
     },
     {
-      key: 'profile',
-      label: 'Profile',
-      url: 'profile'
+      key: 'dashboard',
+      label: 'Dashboard',
+      url: 'dashboard'
     },
     {
       key: 'portfolio',
