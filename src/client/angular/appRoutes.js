@@ -21,6 +21,23 @@ angular.module('appRoutes', []).config(['$stateProvider', '$locationProvider', '
             }
         })
 
+        .state('dashboard', {
+            url: '/dashboard',
+            views: {
+                header: {
+                    templateUrl: '/templates/_common/templates/header.tmpl.html',
+                },
+                content: {
+                    templateUrl: '/templates/dashboard/dashboard.view.html',
+                    controller: 'DashboardController',
+                    controllerAs: 'dashboard'
+                },
+                footer: {
+                    templateUrl: '/templates/_common/templates/footer.tmpl.html',
+                }
+            }
+        })
+
         .state('portfolio', {
             url: '/portfolio',
             views: {
@@ -73,7 +90,24 @@ angular.module('appRoutes', []).config(['$stateProvider', '$locationProvider', '
                         }
                     }
                 }
-            });
+            })
+
+        .state('login', {
+            url: '/login',
+            external: true
+        })
+
+        .state('logout', {
+            url: '/logout',
+            external: true
+        })
+
+        .state('register', {
+            url: '/register',
+            external: true
+        })
+
+        ;
 
     $locationProvider.html5Mode({
         enabled: true,
