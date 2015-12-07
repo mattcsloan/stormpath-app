@@ -5,6 +5,7 @@ angular.module('app', [
   'app.factories', 
   'MainCtrl', 
   'HomeCtrl', 
+  'DashboardCtrl', 
   'PortfolioCtrl',
   'PortfolioDetailCtrl'
 ]);

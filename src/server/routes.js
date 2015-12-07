@@ -2,12 +2,12 @@
 var navigation = require('./data/navigation');
 var portfolioList = require('./data/portfolio/list');
 var portfolioDetail = require('./data/portfolio/detail');
+var stormpath = require('express-stormpath')
 
 module.exports = function(app) {
 
     // server routes ===========================================================
-    // handle things like api calls
-    // authentication routes
+    // api calls
     app.get('/api/navigation', function(req, res) {
         res.json(201, navigation.items);
     });
@@ -38,6 +38,14 @@ module.exports = function(app) {
                 res.json(201, item.item);
             }
         }
+    });
+
+    // authentication routes
+    app.get('/auth/user', stormpath.loginRequired, function (req, res) {
+      if (!req.user || req.user.status !== 'ENABLED') {
+        return res.redirect('/login');
+      }
+      res.json(201, req.user);
     });
 
 
