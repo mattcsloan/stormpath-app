@@ -6,6 +6,8 @@ angular.module('app', [
   'MainCtrl', 
   'HomeCtrl', 
   'DashboardCtrl', 
+  'PostsCtrl',
+  'PostsService',
   'PortfolioCtrl',
   'PortfolioDetailCtrl'
 ]);

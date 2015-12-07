@@ -2,7 +2,8 @@
 var navigation = require('./data/navigation');
 var portfolioList = require('./data/portfolio/list');
 var portfolioDetail = require('./data/portfolio/detail');
-var stormpath = require('express-stormpath')
+var stormpath = require('express-stormpath');
+var Posts = require('./models/posts');
 
 module.exports = function(app) {
 
@@ -38,6 +39,29 @@ module.exports = function(app) {
                 res.json(201, item.item);
             }
         }
+    });
+
+    app.get('/api/posts', function(req, res) {
+        // use mongoose to get all posts in the database
+        Posts.find(function(err, posts) {
+            if (err) {
+                res.send(err);
+            }
+            res.json(posts); // return all posts in JSON format
+        });
+    });
+
+    app.post('/api/posts', function(req, res) {
+        var post = new Posts({
+            name: req.body.name
+        });
+        // use mongoose to add a new post in the database
+        post.save(function(err, posts) {
+            if(err) {
+                res.send(err);
+            }
+            res.json(201, posts);
+        });
     });
 
     // authentication routes

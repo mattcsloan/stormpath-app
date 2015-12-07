@@ -38,6 +38,23 @@ angular.module('appRoutes', []).config(['$stateProvider', '$locationProvider', '
             }
         })
 
+        .state('posts', {
+            url: '/posts',
+            views: {
+                header: {
+                    templateUrl: '/templates/_common/templates/header.tmpl.html',
+                },
+                content: {
+                    templateUrl: '/templates/posts/posts.view.html',
+                    controller: 'PostsController',
+                    controllerAs: 'posts'
+                },
+                footer: {
+                    templateUrl: '/templates/_common/templates/footer.tmpl.html',
+                }
+            }
+        })
+
         .state('portfolio', {
             url: '/portfolio',
             views: {
