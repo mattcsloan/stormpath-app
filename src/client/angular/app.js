@@ -8,6 +8,7 @@ angular.module('app', [
   'DashboardCtrl', 
   'PostsCtrl',
   'PostsCreateCtrl',
+  'PostsViewCtrl',
   'PortfolioCtrl',
   'PortfolioDetailCtrl'
 ]);

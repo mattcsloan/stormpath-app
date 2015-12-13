@@ -56,8 +56,6 @@ module.exports = function(app) {
             name: req.body.name
         });
 
-        console.log('post: ' + post);
-        console.log('req.body.name: ' + req.body.name);
         // use mongoose to add a new post in the database
         post.save(function(err, posts) {
             if(err) {
@@ -66,6 +64,17 @@ module.exports = function(app) {
             res.json(201, posts);
         });
     });
+
+    app.get('/api/posts/:postId', function(req, res) {
+        var postId = req.params.postId;
+        Posts.findById(postId, function(err, posts) {
+            if (err) {
+                res.send(err);
+            }
+            res.json(posts);
+        });
+    });
+
 
     // authentication routes
     app.get('/auth/user', stormpath.loginRequired, function (req, res) {

@@ -76,6 +76,26 @@ angular.module('appRoutes', []).config(['$stateProvider', '$locationProvider', '
                 }
             })
 
+            .state('posts.view', {
+                url: '/view/:postId',
+                views: {
+                    posts: {
+                        templateUrl: '/templates/posts/view/view.view.html',
+                        controller: 'PostsViewController',
+                        controllerAs: 'viewpost',
+                        resolve: {
+                            postId: ['$stateParams', '$state', function($stateParams, $state){
+                                if(!$stateParams.postId) {
+                                    $state.go('posts');
+                                }  else {
+                                    return $stateParams.postId;
+                                }                               
+                            }]
+                        }
+                    }
+                }
+            })
+
 
         .state('portfolio', {
             url: '/portfolio',
