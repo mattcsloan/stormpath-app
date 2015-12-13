@@ -7,12 +7,14 @@ angular.module('PostsCreateCtrl', []).controller('PostsCreateController', functi
   vm.addPost = addPost;
 
   vm.postTitle;
+  vm.postContent;
 
   function addPost() {
 
     var newPost = new Post.post( 
       { 
-       name: vm.postTitle
+       name: vm.postTitle,
+       content: vm.postContent
       }); 
     newPost.$save(); 
 

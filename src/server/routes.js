@@ -53,7 +53,8 @@ module.exports = function(app) {
 
     app.post('/api/posts', function(req, res) {
         var post = new Posts({
-            name: req.body.name
+            name: req.body.name,
+            content: req.body.content
         });
 
         // use mongoose to add a new post in the database

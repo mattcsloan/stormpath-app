@@ -3,6 +3,5 @@ h6.breadcrumb
   span  &raquo; 
   a(data-ui-sref="posts") posts
   span  &raquo; 
-h1(data-ng-bind="viewpost.title")
-p Post ID: {{viewpost.postDetail._id}}
-p Post Name: {{viewpost.postDetail.name}}
+h1(data-ng-bind="viewpost.postDetail.name")
+div(data-ng-bind="viewpost.postDetail.content")
