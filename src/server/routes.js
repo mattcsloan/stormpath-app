@@ -55,6 +55,9 @@ module.exports = function(app) {
         var post = new Posts({
             name: req.body.name
         });
+
+        console.log('post: ' + post);
+        console.log('req.body.name: ' + req.body.name);
         // use mongoose to add a new post in the database
         post.save(function(err, posts) {
             if(err) {

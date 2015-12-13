@@ -10,11 +10,16 @@
   function post($resource) {
     var uri = '/api/posts';
 
-    return $resource(uri, {}, {
-      getAll: {
-        method: 'GET',
-        isArray: true
-      }
-    });
+    return {
+      post: $resource(uri, {}, {
+        getAll: {
+          method: 'GET',
+          isArray: true
+        },
+        createNew: {
+          method: 'POST'
+        }
+      }) 
+    }
   }
 })();

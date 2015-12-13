@@ -1,0 +1,9 @@
+h6.breadcrumb
+  a(data-ui-sref="home") home
+  span  &raquo; 
+  a(data-ui-sref="posts") posts
+  span  &raquo; 
+h1(data-ng-bind="createpost.title")
+form
+  input(type="text", placeholder="Title", data-ng-model="createpost.postTitle")
+a(data-ng-click="createpost.addPost()") Create Sample Post

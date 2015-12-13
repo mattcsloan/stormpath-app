@@ -1,0 +1,7 @@
+h6.breadcrumb
+  a(data-ui-sref="home") home
+  span  &raquo; 
+h1(data-ng-bind="posts.title")
+p(data-ng-repeat="post in posts.posts", data-ng-bind="post.name")
+p
+  a(data-ui-sref="posts.create") Create New Post

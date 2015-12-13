@@ -4,7 +4,7 @@ angular.module('PostsCtrl', []).controller('PostsController', function(Page, Pos
   Page.setTitle('All Posts');   
   vm.title = 'All Posts';
 
-  Post.getAll(function(data) {
+  Post.post.getAll(function(data) {
     vm.posts = data;
   });
 

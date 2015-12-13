@@ -46,14 +46,36 @@ angular.module('appRoutes', []).config(['$stateProvider', '$locationProvider', '
                 },
                 content: {
                     templateUrl: '/templates/posts/posts.view.html',
-                    controller: 'PostsController',
-                    controllerAs: 'posts'
                 },
                 footer: {
                     templateUrl: '/templates/_common/templates/footer.tmpl.html',
                 }
-            }
+            },
+            redirectTo: 'posts.index'
         })
+
+            .state('posts.index', {
+                url: '',
+                views: {
+                    posts: {
+                        templateUrl: '/templates/posts/index/index.view.html',
+                        controller: 'PostsController',
+                        controllerAs: 'posts'
+                    }
+                }
+            })
+
+            .state('posts.create', {
+                url: '/create',
+                views: {
+                    posts: {
+                        templateUrl: '/templates/posts/create/create.view.html',
+                        controller: 'PostsCreateController',
+                        controllerAs: 'createpost'
+                    }
+                }
+            })
+
 
         .state('portfolio', {
             url: '/portfolio',
