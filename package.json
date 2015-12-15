@@ -11,7 +11,7 @@
     "express-stormpath": "~2.3.0",
     "jade": "^1.9.2",
     "method-override": "~2.0.2",
-    "mongodb": "*",
+    "mongodb": "^2.1.0",
     "mongoose": "~3.8.0"
   },
   "devDependencies": {

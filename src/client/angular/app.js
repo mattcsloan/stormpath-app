@@ -6,6 +6,10 @@ angular.module('app', [
   'MainCtrl', 
   'HomeCtrl', 
   'DashboardCtrl', 
+  'PostsCtrl',
+  'PostsCreateCtrl',
+  'PostsEditCtrl',
+  'PostsViewCtrl',
   'PortfolioCtrl',
   'PortfolioDetailCtrl'
 ]);
