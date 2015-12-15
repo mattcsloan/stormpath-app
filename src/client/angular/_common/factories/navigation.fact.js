@@ -11,6 +11,5 @@
     var uri = '/api/navigation/';
     var timeout = 1000;
     console.log('return navigation api');
-    //return $resource(uri, {ps: 'display'});
   }
 })();

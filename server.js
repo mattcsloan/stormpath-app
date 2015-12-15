@@ -16,7 +16,7 @@ var port = process.env.PORT || 8000;
 
 
 // connect to our mongoDB database 
-//mongoose.connect(db.url); 
+mongoose.connect(db.url); 
 
 // get all data/stuff of the body (POST) parameters
 // parse application/json 

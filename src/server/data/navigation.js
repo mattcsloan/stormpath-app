@@ -11,6 +11,11 @@ module.exports = {
       url: 'dashboard'
     },
     {
+      key: 'posts',
+      label: 'Posts',
+      url: 'posts'
+    },
+    {
       key: 'portfolio',
       label: 'Portfolio',
       url: 'portfolio'

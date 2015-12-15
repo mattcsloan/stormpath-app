@@ -38,6 +38,85 @@ angular.module('appRoutes', []).config(['$stateProvider', '$locationProvider', '
             }
         })
 
+        .state('posts', {
+            url: '/posts',
+            views: {
+                header: {
+                    templateUrl: '/templates/_common/templates/header.tmpl.html',
+                },
+                content: {
+                    templateUrl: '/templates/posts/posts.view.html',
+                },
+                footer: {
+                    templateUrl: '/templates/_common/templates/footer.tmpl.html',
+                }
+            },
+            redirectTo: 'posts.index'
+        })
+
+            .state('posts.index', {
+                url: '',
+                views: {
+                    posts: {
+                        templateUrl: '/templates/posts/index/index.view.html',
+                        controller: 'PostsController',
+                        controllerAs: 'posts'
+                    }
+                }
+            })
+
+            .state('posts.create', {
+                url: '/create',
+                views: {
+                    posts: {
+                        templateUrl: '/templates/posts/create/create.view.html',
+                        controller: 'PostsCreateController',
+                        controllerAs: 'createpost'
+                    }
+                }
+            })
+
+            .state('posts.view', {
+                url: '/view/:postId',
+                views: {
+                    posts: {
+                        templateUrl: '/templates/posts/view/view.view.html',
+                        controller: 'PostsViewController',
+                        controllerAs: 'viewpost',
+                        resolve: {
+                            postId: ['$stateParams', '$state', function($stateParams, $state){
+                                if(!$stateParams.postId) {
+                                    $state.go('posts');
+                                }  else {
+                                    return $stateParams.postId;
+                                }                               
+                            }]
+                        }
+                    }
+                }
+            })
+
+            .state('posts.edit', {
+                url: '/edit/:postId',
+                views: {
+                    posts: {
+                        templateUrl: '/templates/posts/edit/edit.view.html',
+                        controller: 'PostsEditController',
+                        controllerAs: 'editpost',
+                        resolve: {
+                            postId: ['$stateParams', '$state', function($stateParams, $state){
+                                if(!$stateParams.postId) {
+                                    $state.go('posts');
+                                }  else {
+                                    return $stateParams.postId;
+                                }                               
+                            }]
+                        }
+                    }
+                }
+            })
+
+
         .state('portfolio', {
             url: '/portfolio',
             views: {
