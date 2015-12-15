@@ -96,6 +96,26 @@ angular.module('appRoutes', []).config(['$stateProvider', '$locationProvider', '
                 }
             })
 
+            .state('posts.edit', {
+                url: '/edit/:postId',
+                views: {
+                    posts: {
+                        templateUrl: '/templates/posts/edit/edit.view.html',
+                        controller: 'PostsEditController',
+                        controllerAs: 'editpost',
+                        resolve: {
+                            postId: ['$stateParams', '$state', function($stateParams, $state){
+                                if(!$stateParams.postId) {
+                                    $state.go('posts');
+                                }  else {
+                                    return $stateParams.postId;
+                                }                               
+                            }]
+                        }
+                    }
+                }
+            })
+
 
         .state('portfolio', {
             url: '/portfolio',

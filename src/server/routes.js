@@ -41,6 +41,7 @@ module.exports = function(app) {
         }
     });
 
+    // get all posts
     app.get('/api/posts', function(req, res) {
         // use mongoose to get all posts in the database
         Posts.find(function(err, posts) {
@@ -51,6 +52,7 @@ module.exports = function(app) {
         });
     });
 
+    // create post
     app.post('/api/posts', function(req, res) {
         var post = new Posts({
             name: req.body.name,
@@ -66,16 +68,54 @@ module.exports = function(app) {
         });
     });
 
+    // get individual post
     app.get('/api/posts/:postId', function(req, res) {
         var postId = req.params.postId;
-        Posts.findById(postId, function(err, posts) {
+        Posts.findById(postId, function(err, post) {
             if (err) {
                 res.send(err);
             }
-            res.json(posts);
+            res.json(post);
         });
     });
 
+    // update individual post
+    app.put('/api/posts/:postId', function(req, res) {
+        var postId = req.params.postId;
+        Posts.findById(postId, function(err, post) {
+            post.name = req.body.name;
+            post.content = req.body.content;
+            if (err) {
+                res.send(err);
+            }
+            if (post) {
+                post.save(function(err) {
+                    if(err) {
+                        res.send(err);
+                    }
+                    res.json(201, post);
+                });
+            }
+        });
+    });
+
+    // delete individual post
+    app.delete('/api/posts/:postId', function(req, res) {
+        var postId = req.params.postId;
+        Posts.findById(postId, function (err, post) {
+            if(err) {
+                res.send(err);
+            }
+            if (post) {
+                post.remove(function(err) {
+                    if(err) {
+                        res.send(err);
+                    }
+                    res.json();
+                });
+            }
+        });
+    });
 
     // authentication routes
     app.get('/auth/user', stormpath.loginRequired, function (req, res) {

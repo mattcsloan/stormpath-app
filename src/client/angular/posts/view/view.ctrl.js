@@ -3,6 +3,7 @@ angular.module('PostsViewCtrl', []).controller('PostsViewController', function(P
 
   Page.setTitle('View Post');   
   vm.title = 'View Post';
+  vm.postId = postId;
 
 
   $http.get('/api/posts/' + postId)

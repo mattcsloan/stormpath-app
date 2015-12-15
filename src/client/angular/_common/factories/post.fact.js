@@ -7,19 +7,29 @@
   ;
 
   /* @ngInject */
-  function post($resource) {
+  function post($http) {
     var uri = '/api/posts';
 
-    return {
-      post: $resource(uri, {}, {
-        getAll: {
-          method: 'GET',
-          isArray: true
-        },
-        createNew: {
-          method: 'POST'
-        }
-      }) 
+    var o = {
+      post: []
+    };
+
+    o.getAll = function() {
+      return $http.get(uri);
+    },
+    o.getOne = function(id) {
+      return $http.get(uri + '/' + id);
+    },
+    o.createNew = function(postData) {
+      return $http.post(uri, postData);
+    },
+    o.update = function(id, postData) {
+      return $http.put(uri + '/' + id, postData);
+    },
+    o.delete = function(id) {
+      return $http.delete(uri + '/' + id);
     }
+
+    return o;
   }
 })();
