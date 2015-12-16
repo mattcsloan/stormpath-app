@@ -6,6 +6,7 @@ var app = angular.module('app', [
   'stormpath.templates',
   'app.factories', 
   'MainCtrl', 
+  'LoginCtrl', 
   'HomeCtrl', 
   'DashboardCtrl', 
   'PostsCtrl',
@@ -19,6 +20,6 @@ var app = angular.module('app', [
 app.run(function($stormpath){
   $stormpath.uiRouter({
     loginState: 'login',
-    defaultPostLoginState: 'home'
+    defaultPostLoginState: 'dashboard'
   });
 });

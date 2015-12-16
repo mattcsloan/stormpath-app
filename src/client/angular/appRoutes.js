@@ -179,8 +179,25 @@ angular.module('appRoutes', []).config(['$stateProvider', '$locationProvider', '
 
         .state('login', {
             url: '/login',
-            external: true
+            views: {
+                header: {
+                    templateUrl: '/templates/_common/templates/header.tmpl.html',
+                },
+                content: {
+                    templateUrl: '/templates/login/login.view.html',
+                    controller: 'LoginController',
+                    controllerAs: 'login'
+                },
+                footer: {
+                    templateUrl: '/templates/_common/templates/footer.tmpl.html',
+                }
+            }
         })
+
+        // .state('login', {
+        //     url: '/login',
+        //     external: true
+        // })
 
         .state('logout', {
             url: '/logout',
