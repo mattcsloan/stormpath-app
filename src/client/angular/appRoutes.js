@@ -73,6 +73,9 @@ angular.module('appRoutes', []).config(['$stateProvider', '$locationProvider', '
                         controller: 'PostsCreateController',
                         controllerAs: 'createpost'
                     }
+                },
+                sp: {
+                    authenticate: true
                 }
             })
 
@@ -113,6 +116,9 @@ angular.module('appRoutes', []).config(['$stateProvider', '$locationProvider', '
                             }]
                         }
                     }
+                },
+                sp: {
+                    authenticate: true
                 }
             })
 

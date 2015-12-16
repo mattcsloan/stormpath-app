@@ -1,7 +1,9 @@
-angular.module('app', [
+var app = angular.module('app', [
   'ui.router',
   'ngAnimate', 
   'appRoutes', 
+  'stormpath',
+  'stormpath.templates',
   'app.factories', 
   'MainCtrl', 
   'HomeCtrl', 
@@ -13,3 +15,10 @@ angular.module('app', [
   'PortfolioCtrl',
   'PortfolioDetailCtrl'
 ]);
+
+app.run(function($stormpath){
+  $stormpath.uiRouter({
+    loginState: 'login',
+    defaultPostLoginState: 'home'
+  });
+});
