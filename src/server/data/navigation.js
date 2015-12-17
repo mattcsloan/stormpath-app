@@ -6,11 +6,6 @@ module.exports = {
       url: 'home'
     },
     {
-      key: 'dashboard',
-      label: 'Dashboard',
-      url: 'dashboard'
-    },
-    {
       key: 'posts',
       label: 'Posts',
       url: 'posts'

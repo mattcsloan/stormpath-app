@@ -53,7 +53,7 @@ module.exports = function(app) {
     });
 
     // create post
-    app.post('/api/posts', function(req, res) {
+    app.post('/api/posts', stormpath.loginRequired, function(req, res) {
         var post = new Posts({
             name: req.body.name,
             content: req.body.content
@@ -80,7 +80,7 @@ module.exports = function(app) {
     });
 
     // update individual post
-    app.put('/api/posts/:postId', function(req, res) {
+    app.put('/api/posts/:postId', stormpath.loginRequired, function(req, res) {
         var postId = req.params.postId;
         Posts.findById(postId, function(err, post) {
             post.name = req.body.name;
@@ -100,7 +100,7 @@ module.exports = function(app) {
     });
 
     // delete individual post
-    app.delete('/api/posts/:postId', function(req, res) {
+    app.delete('/api/posts/:postId', stormpath.loginRequired, function(req, res) {
         var postId = req.params.postId;
         Posts.findById(postId, function (err, post) {
             if(err) {
