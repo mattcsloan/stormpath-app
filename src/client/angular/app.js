@@ -7,6 +7,7 @@ var app = angular.module('app', [
   'app.factories', 
   'MainCtrl', 
   'LoginCtrl', 
+  'RegisterCtrl', 
   'HomeCtrl', 
   'DashboardCtrl', 
   'PostsCtrl',

@@ -35,6 +35,9 @@ angular.module('appRoutes', []).config(['$stateProvider', '$locationProvider', '
                 footer: {
                     templateUrl: '/templates/_common/templates/footer.tmpl.html',
                 }
+            },
+            sp: {
+                authenticate: true
             }
         })
 
@@ -194,18 +197,25 @@ angular.module('appRoutes', []).config(['$stateProvider', '$locationProvider', '
             }
         })
 
-        // .state('login', {
-        //     url: '/login',
-        //     external: true
-        // })
+        .state('register', {
+            url: '/register',
+            views: {
+                header: {
+                    templateUrl: '/templates/_common/templates/header.tmpl.html',
+                },
+                content: {
+                    templateUrl: '/templates/register/register.view.html',
+                    controller: 'RegisterController',
+                    controllerAs: 'register'
+                },
+                footer: {
+                    templateUrl: '/templates/_common/templates/footer.tmpl.html',
+                }
+            }
+        })
 
         .state('logout', {
             url: '/logout',
-            external: true
-        })
-
-        .state('register', {
-            url: '/register',
             external: true
         })
 
