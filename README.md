@@ -1,5 +1,5 @@
-# MEAN Boilerplate
-a barebones app built on the MEAN stack to use as a base for new apps
+# Stormpath App
+testing a MEAN app with Stormpath and Mongoose 4
 
 ##setup
 npm install
