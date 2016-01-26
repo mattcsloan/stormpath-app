@@ -1,5 +1,5 @@
 {
-  "name": "mean-boilerplate",
+  "name": "stormpath-ap",
   "main": "server.js",
   "scripts": {
     "start": "gulp && node server.js",
